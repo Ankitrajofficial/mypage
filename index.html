@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 🌍 BASIC META -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Raj | Engineer • Entrepreneur • Author</title>
+  <meta name="description" content="Ankit Raj — exploring the universe of purpose, technology, and human potential.">
+  <meta name="theme-color" content="#00FFFF">
+
+  <!-- 🧠 FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 💅 STYLES -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: #ffffff; /* ✅ WHITE PRIMARY BACKGROUND */
+      color: #000;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* 🧭 NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.6); /* Transparent glass white */
+      border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+      z-index: 10;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #00AEEF; /* Neon Blue */
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #00AEEF;
+      text-shadow: 0 0 8px #00AEEF;
+    }
+    .buy-btn {
+      padding: 10px 22px;
+      border: 1.5px solid #00AEEF;
+      border-radius: 40px;
+      color: #00AEEF;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .buy-btn:hover {
+      background: #00AEEF;
+      color: #fff;
+      box-shadow: 0 0 15px #00AEEF;
+    }
+
+    /* 🌌 HERO SECTION */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* VIDEO BACKGROUND */
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.85; /* softer under white tone */
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.25);
+      z-index: -1;
+    }
+
+    /* ✨ HERO CONTENT */
+    .hero-content {
+      z-index: 2;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 90%;
+    }
+    .hero-content h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      color: #00AEEF;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    /* 🧠 Typing Animation */
+    .typing-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 45px;
+    }
+    .typing-line p {
+      display: inline-block;
+      font-size: 1.35rem;
+      color: #000;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00AEEF;
+      animation: typing 6s steps(60, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* 🟦 CTA BUTTON */
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 2px solid #00AEEF;
+      border-radius: 50px;
+      color: #00AEEF;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .cta-btn:hover {
+      background: #00AEEF;
+      color: #fff;
+      box-shadow: 0 0 20px #00AEEF;
+    }
+
+    /* ⬇️ SCROLL INDICATOR */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 1rem;
+      color: #00AEEF;
+      animation: pulse 2s infinite;
+    }
+    .scroll-indicator i {
+      display: block;
+      margin-top: 6px;
+      font-size: 1.6rem;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(10px);} }
+    @keyframes pulse { 0%,100%{opacity:0.6;} 50%{opacity:1;} }
+
+    /* 📱 RESPONSIVE */
+    @media(max-width:768px){
+      nav { padding: 12px 25px; }
+      .hero-content h1 { font-size: 2.8rem; }
+      .typing-line p { font-size: 1.05rem; }
+      .cta-btn { font-size: 1rem; padding: 10px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🧭 NAVBAR -->
+  <nav>
+    <div class="logo">Ankit Raj</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="products/index.html">Products</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="products/wake-up-with-your-purpose.html" class="buy-btn">Buy Now</a>
+  </nav>
+
+  <!-- 🌌 HERO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/images/backup-space.jpg">
+      <source src="assets/videos/heropage.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+      <h1>Ankit Raj</h1>
+      <div class="typing-line">
+        <p>Exploring the universe of purpose, technology, and human potential.</p>
+      </div>
+      <a href="#about" class="cta-btn">Discover More</a>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <strong>⬇</strong>
+    </div>
+  </section>
+</body>
+</html>
